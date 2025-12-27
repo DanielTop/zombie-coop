@@ -50,7 +50,17 @@ const WEAPONS = {
     sawBlade: { name: 'Пила', damage: 30, fireRate: 300, bulletSpeed: 12, spread: 0, bullets: 1, pierce: 20, boomerang: true },
     clusterBomb: { name: 'Кассета', damage: 50, fireRate: 800, bulletSpeed: 14, spread: 0.1, bullets: 1, cluster: 8 },
     blackHole: { name: 'Чёрная дыра', damage: 100, fireRate: 2000, bulletSpeed: 8, spread: 0, bullets: 1, vortex: true },
-    nukeGun: { name: 'Ядерка', damage: 300, fireRate: 3000, bulletSpeed: 6, spread: 0, bullets: 1, explosive: 250, nuke: true }
+    nukeGun: { name: 'Ядерка', damage: 300, fireRate: 3000, bulletSpeed: 6, spread: 0, bullets: 1, explosive: 250, nuke: true },
+    // NEW WEAPONS
+    crossbow: { name: 'Арбалет', damage: 80, fireRate: 800, bulletSpeed: 35, spread: 0, bullets: 1, pierce: 5 },
+    tripleShot: { name: 'Трёхствол', damage: 25, fireRate: 400, bulletSpeed: 20, spread: 0.2, bullets: 3 },
+    bouncer: { name: 'Рикошет', damage: 40, fireRate: 500, bulletSpeed: 18, spread: 0.05, bullets: 1, bounce: 5 },
+    homing: { name: 'Самонавод', damage: 30, fireRate: 600, bulletSpeed: 12, spread: 0, bullets: 1, homing: true },
+    shockwave: { name: 'Шоквейв', damage: 60, fireRate: 1200, bulletSpeed: 0, spread: 0, bullets: 1, shockwave: 150 },
+    gatling: { name: 'Гатлинг', damage: 5, fireRate: 25, bulletSpeed: 28, spread: 0.2, bullets: 2 },
+    deagle: { name: 'Дигл', damage: 70, fireRate: 450, bulletSpeed: 35, spread: 0.02, bullets: 1 },
+    firebomb: { name: 'Напалм', damage: 40, fireRate: 900, bulletSpeed: 10, spread: 0.1, bullets: 1, explosive: 80, burn: true },
+    iceStorm: { name: 'Ледяной шторм', damage: 20, fireRate: 150, bulletSpeed: 16, spread: 0.3, bullets: 5, freeze: true }
 };
 
 // Zombie types - more variety! BIGGER sizes!
@@ -166,15 +176,19 @@ function updateRoom(room) {
     if (room.betweenWaves) {
         if (now - room.waveStartTime > 3000) {
             room.betweenWaves = false;
-            room.waveZombiesRemaining = 15 + room.wave * 8;
+            room.waveZombiesRemaining = 25 + room.wave * 15;
             io.to(room.id).emit('waveStart', room.wave);
         }
     } else {
-        // Spawn zombies
-        const spawnRate = Math.max(300, 1500 - room.wave * 50);
+        // Spawn zombies - faster spawn rate for more action
+        const spawnRate = Math.max(150, 800 - room.wave * 40);
         if (now - room.lastSpawn > spawnRate && room.waveZombiesRemaining > 0) {
-            spawnZombie(room);
-            room.waveZombiesRemaining--;
+            // Spawn 1-2 zombies at once on later waves
+            const spawnCount = room.wave >= 5 ? (Math.random() < 0.4 ? 2 : 1) : 1;
+            for (let i = 0; i < spawnCount && room.waveZombiesRemaining > 0; i++) {
+                spawnZombie(room);
+                room.waveZombiesRemaining--;
+            }
             room.lastSpawn = now;
         }
 
@@ -313,15 +327,15 @@ function updateRoom(room) {
                             // Weapon drop tiers based on wave
                             let weaponPool;
                             if (room.wave < 3) {
-                                weaponPool = ['smg', 'shotgun', 'rifle'];
+                                weaponPool = ['smg', 'shotgun', 'rifle', 'crossbow', 'deagle'];
                             } else if (room.wave < 5) {
-                                weaponPool = ['smg', 'shotgun', 'doubleBarrel', 'rifle', 'sniper', 'minigun', 'flamethrower'];
+                                weaponPool = ['smg', 'shotgun', 'doubleBarrel', 'rifle', 'sniper', 'minigun', 'flamethrower', 'tripleShot', 'crossbow', 'deagle'];
                             } else if (room.wave < 8) {
-                                weaponPool = ['doubleBarrel', 'sniper', 'minigun', 'laser', 'plasma', 'bazooka', 'freezeGun', 'acidGun'];
+                                weaponPool = ['doubleBarrel', 'sniper', 'minigun', 'laser', 'plasma', 'bazooka', 'freezeGun', 'acidGun', 'bouncer', 'homing', 'gatling'];
                             } else if (room.wave < 12) {
-                                weaponPool = ['laser', 'plasma', 'bazooka', 'grenadeLauncher', 'railgun', 'chainLightning', 'sawBlade', 'clusterBomb'];
+                                weaponPool = ['laser', 'plasma', 'bazooka', 'grenadeLauncher', 'railgun', 'chainLightning', 'sawBlade', 'clusterBomb', 'shockwave', 'firebomb', 'iceStorm'];
                             } else {
-                                weaponPool = ['railgun', 'chainLightning', 'clusterBomb', 'blackHole', 'nukeGun'];
+                                weaponPool = ['railgun', 'chainLightning', 'clusterBomb', 'blackHole', 'nukeGun', 'shockwave', 'iceStorm'];
                             }
                             pickup.weaponKey = weaponPool[Math.floor(Math.random() * weaponPool.length)];
                         }
@@ -370,6 +384,7 @@ function updateRoom(room) {
             y: p.y,
             angle: p.angle,
             color: p.color,
+            name: p.name,
             hp: p.hp,
             maxHp: p.maxHp,
             level: p.level,
@@ -508,7 +523,10 @@ io.on('connection', (socket) => {
             if (player && player.alive) {
                 const bullet = {
                     ...bulletData,
-                    ownerId: playerId
+                    ownerId: playerId,
+                    traveled: 0,
+                    size: bulletData.size || 5,
+                    pierce: bulletData.pierce ?? 0
                 };
                 currentRoom.bullets.push(bullet);
 
