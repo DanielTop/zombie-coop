@@ -587,6 +587,6 @@ setInterval(() => {
 }, 1000 / 60);
 
 const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => {
+server.listen(PORT, '0.0.0.0', () => {
     console.log(`Zombie Co-op server running on port ${PORT}`);
 });
