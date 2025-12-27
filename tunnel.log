@@ -1,0 +1,46 @@
+2025-12-27T21:33:03Z INF Thank you for trying Cloudflare Tunnel. Doing so, without a Cloudflare account, is a quick way to experiment and try it out. However, be aware that these account-less Tunnels have no uptime guarantee, are subject to the Cloudflare Online Services Terms of Use (https://www.cloudflare.com/website-terms/), and Cloudflare reserves the right to investigate your use of Tunnels for violations of such terms. If you intend to use Tunnels in production you should use a pre-created named tunnel by following: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps
+2025-12-27T21:33:03Z INF Requesting new quick Tunnel on trycloudflare.com...
+2025-12-27T21:33:08Z INF +--------------------------------------------------------------------------------------------+
+2025-12-27T21:33:08Z INF |  Your quick Tunnel has been created! Visit it at (it may take some time to be reachable):  |
+2025-12-27T21:33:08Z INF |  https://pin-competitive-render-house.trycloudflare.com                                    |
+2025-12-27T21:33:08Z INF +--------------------------------------------------------------------------------------------+
+2025-12-27T21:33:08Z INF Cannot determine default configuration path. No file [config.yml config.yaml] in [~/.cloudflared ~/.cloudflare-warp ~/cloudflare-warp /etc/cloudflared /usr/local/etc/cloudflared]
+2025-12-27T21:33:08Z INF Version 2025.8.1 (Checksum f64d98a4d698e182b683247fc752ca503697bf7abba42bcbe91e0b7a921cda51)
+2025-12-27T21:33:08Z INF GOOS: darwin, GOVersion: go1.25.0, GoArch: arm64
+2025-12-27T21:33:08Z INF Settings: map[ha-connections:1 protocol:quic url:http://localhost:3000]
+2025-12-27T21:33:08Z INF cloudflared will not automatically update if installed by a package manager.
+2025-12-27T21:33:08Z INF Generated Connector ID: f95e3c08-c277-40e8-920d-9eb5fa4e3d83
+2025-12-27T21:33:08Z INF Initial protocol quic
+2025-12-27T21:33:08Z INF ICMP proxy will use 192.168.3.5 as source for IPv4
+2025-12-27T21:33:08Z INF ICMP proxy will use fe80::8ff:b9c7:8c83:3fca in zone en0 as source for IPv6
+2025-12-27T21:33:08Z INF Created ICMP proxy listening on 192.168.3.5:0
+2025-12-27T21:33:09Z INF ICMP proxy will use 192.168.3.5 as source for IPv4
+2025-12-27T21:33:09Z INF ICMP proxy will use fe80::8ff:b9c7:8c83:3fca in zone en0 as source for IPv6
+2025-12-27T21:33:09Z INF Starting metrics server on 127.0.0.1:20242/metrics
+2025-12-27T21:33:09Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveP256] connIndex=0 event=0 ip=198.41.200.233
+2025-12-27T21:33:09Z ERR failed to run the datagram handler error="context canceled" connIndex=0 event=0 ip=198.41.200.233
+2025-12-27T21:33:09Z ERR failed to serve tunnel connection error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.200.233
+2025-12-27T21:33:09Z ERR Serve tunnel error error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.200.233
+2025-12-27T21:33:09Z INF Retrying connection in up to 2s connIndex=0 event=0 ip=198.41.200.233
+2025-12-27T21:33:11Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveP256] connIndex=0 event=0 ip=198.41.200.233
+2025-12-27T21:33:11Z ERR failed to run the datagram handler error="context canceled" connIndex=0 event=0 ip=198.41.200.233
+2025-12-27T21:33:11Z ERR failed to serve tunnel connection error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.200.233
+2025-12-27T21:33:11Z ERR Serve tunnel error error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.200.233
+2025-12-27T21:33:11Z INF Retrying connection in up to 4s connIndex=0 event=0 ip=198.41.200.233
+2025-12-27T21:33:13Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveP256] connIndex=0 event=0 ip=198.41.200.233
+2025-12-27T21:33:13Z ERR failed to run the datagram handler error="context canceled" connIndex=0 event=0 ip=198.41.200.233
+2025-12-27T21:33:13Z ERR failed to serve tunnel connection error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.200.233
+2025-12-27T21:33:13Z ERR Serve tunnel error error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.200.233
+2025-12-27T21:33:13Z INF Retrying connection in up to 8s connIndex=0 event=0 ip=198.41.200.233
+2025-12-27T21:33:18Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveP256] connIndex=0 event=0 ip=198.41.200.233
+2025-12-27T21:33:18Z ERR failed to run the datagram handler error="context canceled" connIndex=0 event=0 ip=198.41.200.233
+2025-12-27T21:33:18Z ERR failed to serve tunnel connection error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.200.233
+2025-12-27T21:33:18Z ERR Serve tunnel error error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.200.233
+2025-12-27T21:33:18Z INF Retrying connection in up to 16s connIndex=0 event=0 ip=198.41.200.233
+2025-12-27T21:33:21Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveP256] connIndex=0 event=0 ip=198.41.200.233
+2025-12-27T21:33:21Z ERR failed to run the datagram handler error="context canceled" connIndex=0 event=0 ip=198.41.200.233
+2025-12-27T21:33:21Z ERR failed to serve tunnel connection error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.200.233
+2025-12-27T21:33:21Z ERR Serve tunnel error error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.200.233
+2025-12-27T21:33:21Z INF Retrying connection in up to 32s connIndex=0 event=0 ip=198.41.200.233
+2025-12-27T21:33:32Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveP256] connIndex=0 event=0 ip=198.41.200.233
+2025-12-27T21:33:32Z INF Registered tunnel connection connIndex=0 connection=35e399e6-60ec-48c0-b049-e6426bafd79b event=0 ip=198.41.200.233 location=lhr13 protocol=quic
