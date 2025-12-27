@@ -53,31 +53,31 @@ const WEAPONS = {
     nukeGun: { name: 'Ядерка', damage: 300, fireRate: 3000, bulletSpeed: 6, spread: 0, bullets: 1, explosive: 250, nuke: true }
 };
 
-// Zombie types - more variety!
+// Zombie types - more variety! BIGGER sizes!
 const ZOMBIE_TYPES = {
-    // Basic
-    normal: { hp: 30, speed: 1.8, damage: 10, radius: 14, color: '#44aa44', xp: 10, icon: 'zombie' },
-    fast: { hp: 18, speed: 4, damage: 8, radius: 11, color: '#aacc44', xp: 15, icon: 'runner' },
-    crawler: { hp: 25, speed: 2.5, damage: 12, radius: 10, color: '#66aa66', xp: 12, icon: 'crawler' },
+    // Basic - bigger!
+    normal: { hp: 35, speed: 1.6, damage: 10, radius: 22, color: '#44aa44', xp: 10, icon: 'zombie' },
+    fast: { hp: 20, speed: 3.5, damage: 8, radius: 18, color: '#aacc44', xp: 15, icon: 'runner' },
+    crawler: { hp: 28, speed: 2.2, damage: 12, radius: 16, color: '#66aa66', xp: 12, icon: 'crawler' },
 
     // Medium
-    tank: { hp: 180, speed: 0.9, damage: 25, radius: 26, color: '#664422', xp: 45, icon: 'tank' },
-    exploder: { hp: 45, speed: 2.2, damage: 5, radius: 16, color: '#cc4444', xp: 25, icon: 'exploder' },
-    spitter: { hp: 35, speed: 1.5, damage: 15, radius: 15, color: '#44ccaa', xp: 30, icon: 'spitter' },
+    tank: { hp: 200, speed: 0.8, damage: 25, radius: 38, color: '#664422', xp: 45, icon: 'tank' },
+    exploder: { hp: 50, speed: 2.0, damage: 5, radius: 26, color: '#cc4444', xp: 25, icon: 'exploder' },
+    spitter: { hp: 40, speed: 1.4, damage: 15, radius: 24, color: '#44ccaa', xp: 30, icon: 'spitter' },
 
     // Special
-    ghost: { hp: 50, speed: 2.8, damage: 18, radius: 14, color: '#8888ff', xp: 35, icon: 'ghost', alpha: 0.6 },
-    splitter: { hp: 60, speed: 1.6, damage: 12, radius: 18, color: '#aa66aa', xp: 40, icon: 'splitter', splits: 2 },
-    armored: { hp: 120, speed: 1.2, damage: 20, radius: 20, color: '#888888', xp: 50, icon: 'armored', armor: 0.3 },
+    ghost: { hp: 55, speed: 2.5, damage: 18, radius: 22, color: '#8888ff', xp: 35, icon: 'ghost', alpha: 0.6 },
+    splitter: { hp: 70, speed: 1.5, damage: 12, radius: 28, color: '#aa66aa', xp: 40, icon: 'splitter', splits: 2 },
+    armored: { hp: 140, speed: 1.1, damage: 20, radius: 30, color: '#888888', xp: 50, icon: 'armored', armor: 0.3 },
 
     // Elite
-    giant: { hp: 300, speed: 0.7, damage: 35, radius: 35, color: '#553322', xp: 80, icon: 'giant' },
-    nightmare: { hp: 100, speed: 3.5, damage: 30, radius: 18, color: '#ff0066', xp: 70, icon: 'nightmare' },
-    necro: { hp: 80, speed: 1.3, damage: 15, radius: 17, color: '#6600aa', xp: 60, icon: 'necro', spawner: true },
+    giant: { hp: 350, speed: 0.6, damage: 35, radius: 50, color: '#553322', xp: 80, icon: 'giant' },
+    nightmare: { hp: 120, speed: 3.2, damage: 30, radius: 26, color: '#ff0066', xp: 70, icon: 'nightmare' },
+    necro: { hp: 90, speed: 1.2, damage: 15, radius: 28, color: '#6600aa', xp: 60, icon: 'necro', spawner: true },
 
     // Boss
-    boss: { hp: 600, speed: 0.6, damage: 50, radius: 45, color: '#880044', xp: 250, icon: 'boss' },
-    megaBoss: { hp: 1500, speed: 0.4, damage: 80, radius: 60, color: '#440022', xp: 500, icon: 'megaboss' }
+    boss: { hp: 700, speed: 0.5, damage: 50, radius: 60, color: '#880044', xp: 250, icon: 'boss' },
+    megaBoss: { hp: 1800, speed: 0.35, damage: 80, radius: 80, color: '#440022', xp: 500, icon: 'megaboss' }
 };
 
 function createRoom(roomId) {

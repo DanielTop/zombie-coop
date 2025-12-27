@@ -464,35 +464,35 @@
 
         // Weapons - 20 different weapons! BALANCED
         const WEAPONS = {
-            // Tier 1 - Starting (waves 1-2)
-            pistol: { name: 'Пистолет', damage: 18, fireRate: 120, bulletSpeed: 22, spread: 0.03, bullets: 1, color: '#ffff00', icon: '🔫' },
-            smg: { name: 'Узи', damage: 10, fireRate: 45, bulletSpeed: 24, spread: 0.12, bullets: 1, color: '#00ffff', icon: '🔫' },
-            shotgun: { name: 'Дробовик', damage: 14, fireRate: 450, bulletSpeed: 18, spread: 0.28, bullets: 6, color: '#ff8800', icon: '🔫' },
+            // Tier 1 - Starting (waves 1-2) - NO PIERCE by default!
+            pistol: { name: 'Пистолет', damage: 20, fireRate: 280, bulletSpeed: 20, spread: 0.03, bullets: 1, color: '#ffff00', icon: '🔫', pierce: 0 },
+            smg: { name: 'Узи', damage: 12, fireRate: 90, bulletSpeed: 22, spread: 0.12, bullets: 1, color: '#00ffff', icon: '🔫', pierce: 0 },
+            shotgun: { name: 'Дробовик', damage: 18, fireRate: 500, bulletSpeed: 16, spread: 0.28, bullets: 6, color: '#ff8800', icon: '🔫', pierce: 0 },
 
             // Tier 2 - Early (waves 3-4)
-            doubleBarrel: { name: 'Двустволка', damage: 18, fireRate: 650, bulletSpeed: 16, spread: 0.32, bullets: 10, color: '#ff6600', icon: '💥' },
-            rifle: { name: 'Винтовка', damage: 45, fireRate: 280, bulletSpeed: 32, spread: 0.02, bullets: 1, color: '#ff00ff', pierce: 2, icon: '🎯' },
-            minigun: { name: 'Миниган', damage: 8, fireRate: 40, bulletSpeed: 26, spread: 0.15, bullets: 1, color: '#ff4444', icon: '🔥' },
-            flamethrower: { name: 'Огнемёт', damage: 6, fireRate: 25, bulletSpeed: 12, spread: 0.35, bullets: 3, color: '#ff4400', range: 180, icon: '🔥' },
+            doubleBarrel: { name: 'Двустволка', damage: 22, fireRate: 700, bulletSpeed: 15, spread: 0.32, bullets: 10, color: '#ff6600', icon: '💥', pierce: 0 },
+            rifle: { name: 'Винтовка', damage: 50, fireRate: 350, bulletSpeed: 30, spread: 0.02, bullets: 1, color: '#ff00ff', pierce: 2, icon: '🎯' },
+            minigun: { name: 'Миниган', damage: 10, fireRate: 60, bulletSpeed: 24, spread: 0.15, bullets: 1, color: '#ff4444', icon: '🔥', pierce: 0 },
+            flamethrower: { name: 'Огнемёт', damage: 8, fireRate: 40, bulletSpeed: 10, spread: 0.35, bullets: 3, color: '#ff4400', range: 180, icon: '🔥', pierce: 0 },
 
             // Tier 3 - Mid (waves 5-7)
-            sniper: { name: 'Снайперка', damage: 120, fireRate: 900, bulletSpeed: 55, spread: 0, bullets: 1, color: '#ff0088', pierce: 5, icon: '🎯' },
-            laser: { name: 'Лазер', damage: 28, fireRate: 80, bulletSpeed: 45, spread: 0, bullets: 1, color: '#00ff00', pierce: 8, icon: '⚡' },
-            plasma: { name: 'Плазма', damage: 50, fireRate: 300, bulletSpeed: 16, spread: 0.06, bullets: 1, color: '#aa00ff', explosive: 55, icon: '💜' },
-            freezeGun: { name: 'Крио-пушка', damage: 20, fireRate: 120, bulletSpeed: 20, spread: 0.08, bullets: 1, color: '#88ddff', freeze: true, icon: '❄️' },
-            acidGun: { name: 'Кислота', damage: 22, fireRate: 140, bulletSpeed: 18, spread: 0.12, bullets: 2, color: '#44ff44', poison: true, icon: '☠️' },
+            sniper: { name: 'Снайперка', damage: 150, fireRate: 1000, bulletSpeed: 50, spread: 0, bullets: 1, color: '#ff0088', pierce: 3, icon: '🎯' },
+            laser: { name: 'Лазер', damage: 35, fireRate: 100, bulletSpeed: 40, spread: 0, bullets: 1, color: '#00ff00', pierce: 5, icon: '⚡' },
+            plasma: { name: 'Плазма', damage: 60, fireRate: 350, bulletSpeed: 14, spread: 0.06, bullets: 1, color: '#aa00ff', explosive: 55, icon: '💜', pierce: 0 },
+            freezeGun: { name: 'Крио-пушка', damage: 25, fireRate: 180, bulletSpeed: 18, spread: 0.08, bullets: 1, color: '#88ddff', freeze: true, icon: '❄️', pierce: 0 },
+            acidGun: { name: 'Кислота', damage: 28, fireRate: 180, bulletSpeed: 16, spread: 0.12, bullets: 2, color: '#44ff44', poison: true, icon: '☠️', pierce: 0 },
 
             // Tier 4 - Late (waves 8-11)
-            bazooka: { name: 'Базука', damage: 100, fireRate: 800, bulletSpeed: 14, spread: 0.04, bullets: 1, color: '#ff2200', explosive: 100, icon: '🚀', big: true },
-            grenadeLauncher: { name: 'Гранатомёт', damage: 70, fireRate: 550, bulletSpeed: 14, spread: 0.08, bullets: 1, color: '#44ff00', explosive: 85, icon: '💣' },
-            railgun: { name: 'Рейлган', damage: 180, fireRate: 1100, bulletSpeed: 70, spread: 0, bullets: 1, color: '#00ffff', pierce: 30, icon: '⚡', beam: true },
-            chainLightning: { name: 'Тесла', damage: 35, fireRate: 300, bulletSpeed: 40, spread: 0, bullets: 1, color: '#ffff00', chain: 4, icon: '⚡' },
-            sawBlade: { name: 'Пила', damage: 25, fireRate: 250, bulletSpeed: 14, spread: 0, bullets: 1, color: '#cccccc', pierce: 15, boomerang: true, icon: '⚙️' },
+            bazooka: { name: 'Базука', damage: 120, fireRate: 900, bulletSpeed: 12, spread: 0.04, bullets: 1, color: '#ff2200', explosive: 100, icon: '🚀', big: true, pierce: 0 },
+            grenadeLauncher: { name: 'Гранатомёт', damage: 80, fireRate: 600, bulletSpeed: 12, spread: 0.08, bullets: 1, color: '#44ff00', explosive: 85, icon: '💣', pierce: 0 },
+            railgun: { name: 'Рейлган', damage: 200, fireRate: 1200, bulletSpeed: 60, spread: 0, bullets: 1, color: '#00ffff', pierce: 20, icon: '⚡', beam: true },
+            chainLightning: { name: 'Тесла', damage: 40, fireRate: 350, bulletSpeed: 35, spread: 0, bullets: 1, color: '#ffff00', chain: 4, icon: '⚡', pierce: 0 },
+            sawBlade: { name: 'Пила', damage: 30, fireRate: 300, bulletSpeed: 12, spread: 0, bullets: 1, color: '#cccccc', pierce: 10, boomerang: true, icon: '⚙️' },
 
             // Tier 5 - Epic (waves 12+)
-            clusterBomb: { name: 'Кассета', damage: 60, fireRate: 650, bulletSpeed: 16, spread: 0.08, bullets: 1, color: '#ffaa00', cluster: 6, icon: '💥' },
-            blackHole: { name: 'Чёрная дыра', damage: 80, fireRate: 1500, bulletSpeed: 10, spread: 0, bullets: 1, color: '#8800ff', vortex: true, icon: '🌀', big: true },
-            nukeGun: { name: 'Ядерка', damage: 250, fireRate: 2500, bulletSpeed: 8, spread: 0, bullets: 1, color: '#ffff00', explosive: 200, nuke: true, icon: '☢️', big: true }
+            clusterBomb: { name: 'Кассета', damage: 70, fireRate: 700, bulletSpeed: 14, spread: 0.08, bullets: 1, color: '#ffaa00', cluster: 6, icon: '💥', pierce: 0 },
+            blackHole: { name: 'Чёрная дыра', damage: 100, fireRate: 1800, bulletSpeed: 8, spread: 0, bullets: 1, color: '#8800ff', vortex: true, icon: '🌀', big: true, pierce: 0 },
+            nukeGun: { name: 'Ядерка', damage: 300, fireRate: 3000, bulletSpeed: 6, spread: 0, bullets: 1, color: '#ffff00', explosive: 200, nuke: true, icon: '☢️', big: true, pierce: 0 }
         };
 
         // Powerups
